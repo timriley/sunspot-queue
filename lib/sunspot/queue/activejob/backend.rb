@@ -10,11 +10,11 @@ module Sunspot::Queue::ActiveJob
     end
 
     def index(klass, id)
-      index_job.enqueue klass, id
+      index_job.perform_later klass, id
     end
 
     def remove(klass, id)
-      removal_job.enqueue klass, id
+      removal_job.perform_later klass, id
     end
 
     private
